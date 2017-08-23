@@ -1,0 +1,1161 @@
+{
+	"variables": [],
+	"info": {
+		"name": "NineGold-API",
+		"_postman_id": "3efe6c1f-7ee0-d431-7eea-587a5d211a76",
+		"description": "NineGold API Docs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/stripe/plan",
+			"request": {
+				"url": "http://localhost:8080/stripe/plan",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": "This is used to create a stripe plan\nThis needs to be run before we register any user since we are assuming that a stripe plan would already be present"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/users/basic-monthly",
+			"request": {
+				"url": "http://localhost:8080/users/basic-monthly",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\": \"Abhinav\",\n\t\"lastName\": \"Koppula\",\n\t\"email\": \"abhinav@test.com\",\n\t\"password\": \"password\"\n}"
+				},
+				"description": "- This is used to register a user to a basic-monthly plan.\nbasic-monthly is the plan id of the plan created in the previous request(Create Plan request)\n- This subscribes user to a plan whose id is passed in the path"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/auth/login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "abhinav@test.com",
+						"password": "password",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "http://localhost:8080/auth/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWJoaW5hdkB0ZXN0LmNvbTpwYXNzd29yZA==",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "- Login api which uses Basic Authentication\n- Returns the user object"
+			},
+			"response": [
+				{
+					"id": "5a5acd5c-ea7c-49ea-b252-bb332a7e7c68",
+					"name": "Invalid creds example",
+					"originalRequest": {
+						"url": "http://localhost:8080/auth/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"name": "Authorization",
+								"value": "Basic YWJoaW5hdjJAdGVzdC5jb206cGFzc3dvcmQ=",
+								"description": ""
+							}
+						],
+						"body": {}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 02 Aug 2017 19:56:52 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "0",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "WWW-Authenticate",
+							"key": "WWW-Authenticate",
+							"value": "FormBased",
+							"description": "Indicates the authentication scheme that should be used to access the requested entity."
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [],
+					"responseTime": 161,
+					"body": "{\"timestamp\":1501703812972,\"status\":401,\"error\":\"Unauthorized\",\"message\":\"Bad credentials\",\"path\":\"/auth/login\"}"
+				},
+				{
+					"id": "2cec0c6e-db45-4c72-81da-c83553491601",
+					"name": "Login response after user is terminated",
+					"originalRequest": {
+						"url": "http://localhost:8080/auth/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"name": "Authorization",
+								"value": "Basic YWJoaW5hdkB0ZXN0LmNvbTpwYXNzd29yZA==",
+								"description": ""
+							}
+						],
+						"body": {}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 02 Aug 2017 20:02:50 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "0",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "WWW-Authenticate",
+							"key": "WWW-Authenticate",
+							"value": "FormBased",
+							"description": "Indicates the authentication scheme that should be used to access the requested entity."
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [],
+					"responseTime": 34,
+					"body": "{\"timestamp\":1501704170935,\"status\":401,\"error\":\"Unauthorized\",\"message\":\"User is disabled\",\"path\":\"/auth/login\"}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8080/auth/logout",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "abhinav@test.com",
+						"password": "password",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "http://localhost:8080/auth/logout",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWJoaW5hdkB0ZXN0LmNvbTpwYXNzd29yZA==",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "- Logout Api"
+			},
+			"response": [
+				{
+					"id": "f1c47a88-0eb5-449a-ae1e-afb0990d5ba3",
+					"name": "Logout with invalid creds",
+					"originalRequest": {
+						"url": "http://localhost:8080/auth/logout",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"name": "Authorization",
+								"value": "Basic YWJoaW5hdjFAdGVzdC5jb206cGFzc3dvcmQ=",
+								"description": ""
+							}
+						],
+						"body": {}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 02 Aug 2017 19:59:26 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "0",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "WWW-Authenticate",
+							"key": "WWW-Authenticate",
+							"value": "FormBased",
+							"description": "Indicates the authentication scheme that should be used to access the requested entity."
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [],
+					"responseTime": 158,
+					"body": "{\"timestamp\":1501703966789,\"status\":401,\"error\":\"Unauthorized\",\"message\":\"Bad credentials\",\"path\":\"/auth/logout\"}"
+				},
+				{
+					"id": "6dc844e0-6167-4aff-b407-c4dacd19eef7",
+					"name": "Logout Response",
+					"originalRequest": {
+						"url": "http://localhost:8080/auth/logout",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"name": "Authorization",
+								"value": "Basic YWJoaW5hdkB0ZXN0LmNvbTpwYXNzd29yZA==",
+								"description": ""
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plainText",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "0",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 02 Aug 2017 20:00:13 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "0",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [],
+					"responseTime": 143,
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8080/users/terminate",
+			"request": {
+				"url": "http://localhost:8080/users/terminate",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWJoaW5hdkB0ZXN0LmNvbTpwYXNzd29yZA==",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "- Terminates user by setting is_terminated flag to true\n- Also cancels Stripe subscription"
+			},
+			"response": [
+				{
+					"id": "12e8db12-653b-45b1-851d-cdd571802105",
+					"name": "Termination Response - 200",
+					"originalRequest": {
+						"url": "http://localhost:8080/users/terminate",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"name": "Authorization",
+								"value": "Basic YWJoaW5hdkB0ZXN0LmNvbTpwYXNzd29yZA==",
+								"description": ""
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plainText",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "0",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 02 Aug 2017 20:01:13 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "0",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [],
+					"responseTime": 2255,
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "localhost:8080/users/forgotPassword?email=abhinav@test.com",
+			"request": {
+				"url": {
+					"raw": "localhost:8080/users/forgotPassword?email=abhinav@test.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"forgotPassword"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "abhinav@test.com",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"description": "- Reset password api\n- Emails token to user"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/users/forgotPassword?email=abhinav@test.com",
+			"request": {
+				"url": {
+					"raw": "localhost:8080/users/forgotPassword?email=abhinav2@test.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"forgotPassword"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "abhinav2@test.com",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"description": "- Reset password api behavior when user with incoming email is not found"
+			},
+			"response": [
+				{
+					"id": "de9a2c5c-c011-40fa-83ca-67dbe171da97",
+					"name": "User not found response",
+					"originalRequest": {
+						"url": {
+							"raw": "localhost:8080/users/forgotPassword?email=abhinav2@test.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"forgotPassword"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "abhinav2@test.com",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"description": "",
+								"warning": "",
+								"disabled": true
+							}
+						],
+						"body": {}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "close",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 02 Aug 2017 20:06:04 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "0",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [],
+					"responseTime": 62,
+					"body": "{\"timestamp\":1501704364433,\"status\":500,\"error\":\"Internal Server Error\",\"exception\":\"com.ninegold.ninegoldapi.exceptions.EntityNotFoundException\",\"message\":\"No user found with email abhinav2@test.com\",\"path\":\"/users/forgotPassword\"}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8080/users/updatePassword",
+			"request": {
+				"url": "http://localhost:8080/users/updatePassword",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\"token\": \"af5ce2b7-a1ec-46b6-abdd-9d7d059b8525\",\n\t\"newPassword\": \"password2\"\n}"
+				},
+				"description": "- Update password api which takes reset token and new password"
+			},
+			"response": [
+				{
+					"id": "d39a3582-618b-4a51-b91b-dbbd71eff58b",
+					"name": "Update password response",
+					"originalRequest": {
+						"url": "http://localhost:8080/users/updatePassword",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"token\": \"af5ce2b7-a1ec-46b6-abdd-9d7d059b8525\",\n\t\"newPassword\": \"password2\"\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 02 Aug 2017 20:08:45 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "0",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [],
+					"responseTime": 187,
+					"body": "true"
+				},
+				{
+					"id": "1b2dadf0-38a6-4f0d-b3ae-d7e0ef6f2ec5",
+					"name": "Incorrect token example",
+					"originalRequest": {
+						"url": "http://localhost:8080/users/updatePassword",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"token\": \"af5ce2b7-a1ec-46b6-abdd-9d7d059b852\",\n\t\"newPassword\": \"password2\"\n}"
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "close",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 02 Aug 2017 20:09:47 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "0",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [],
+					"responseTime": 40,
+					"body": "{\"timestamp\":1501704587046,\"status\":500,\"error\":\"Internal Server Error\",\"exception\":\"java.lang.IllegalArgumentException\",\"message\":\"Token is not correct\",\"path\":\"/users/updatePassword\"}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8080/stripe/handleEvent",
+			"request": {
+				"url": "http://localhost:8080/stripe/handleEvent",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"created\": 1326853478,\n  \"livemode\": false,\n  \"id\": \"evt_00000000000000\",\n  \"type\": \"invoice.payment_failed\",\n  \"object\": \"event\",\n  \"request\": null,\n  \"pending_webhooks\": 1,\n  \"api_version\": null,\n  \"data\": {\n    \"object\": {\n      \"id\": \"in_00000000000000\",\n      \"object\": \"invoice\",\n      \"amount_due\": 999,\n      \"application_fee\": null,\n      \"attempt_count\": 1,\n      \"attempted\": true,\n      \"charge\": \"ch_00000000000000\",\n      \"closed\": false,\n      \"currency\": \"usd\",\n      \"customer\": \"cus_00000000000000\",\n      \"date\": 1501475485,\n      \"description\": null,\n      \"discount\": null,\n      \"ending_balance\": 0,\n      \"forgiven\": false,\n      \"lines\": {\n        \"data\": [\n          {\n            \"id\": \"sub_B8kOhWWuH61Hjo\",\n            \"object\": \"line_item\",\n            \"amount\": 10,\n            \"currency\": \"usd\",\n            \"description\": null,\n            \"discountable\": true,\n            \"livemode\": true,\n            \"metadata\": {\n            },\n            \"period\": {\n              \"start\": 1504381958,\n              \"end\": 1506973958\n            },\n            \"plan\": {\n              \"id\": \"basic-monthly\",\n              \"object\": \"plan\",\n              \"amount\": 10,\n              \"created\": 1501703404,\n              \"currency\": \"usd\",\n              \"interval\": \"month\",\n              \"interval_count\": 1,\n              \"livemode\": false,\n              \"metadata\": {\n              },\n              \"name\": \"Basic Monthly\",\n              \"statement_descriptor\": null,\n              \"trial_period_days\": null\n            },\n            \"proration\": false,\n            \"quantity\": 1,\n            \"subscription\": null,\n            \"subscription_item\": \"si_1AmStWKuZW8EOgBnljJ9kcyH\",\n            \"type\": \"subscription\"\n          }\n        ],\n        \"total_count\": 1,\n        \"object\": \"list\",\n        \"url\": \"/v1/invoices/in_1AlVYvKuZW8EOgBn9q52saA3/lines\"\n      },\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"next_payment_attempt\": null,\n      \"paid\": false,\n      \"period_end\": 1501475485,\n      \"period_start\": 1501475485,\n      \"receipt_number\": null,\n      \"starting_balance\": 0,\n      \"statement_descriptor\": null,\n      \"subscription\": \"sub_00000000000000\",\n      \"subtotal\": 999,\n      \"tax\": null,\n      \"tax_percent\": null,\n      \"total\": 999,\n      \"webhooks_delivered_at\": 1501475486\n    }\n  }\n}"
+				},
+				"description": "- Webhook for payment failure and payment success\n- We can change the customer value in the data object to a customer id from the db and check the termination of accounts and the trigger of emails"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/users/me",
+			"request": {
+				"url": "http://localhost:8080/users/me",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWJoaW5hdkB0ZXN0LmNvbTpwYXNzd29yZDI=",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "- Utility api to get detail about oneself"
+			},
+			"response": [
+				{
+					"id": "382a14f0-d9dd-4b83-b26c-9a00ef984360",
+					"name": "get Me Response",
+					"originalRequest": {
+						"url": "http://localhost:8080/users/me",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"name": "Authorization",
+								"value": "Basic YWJoaW5hdkB0ZXN0LmNvbTpwYXNzd29yZDI=",
+								"description": ""
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 02 Aug 2017 20:16:46 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "0",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [],
+					"responseTime": 149,
+					"body": "{\"id\":1,\"createdOn\":1501703559418,\"lastModifiedOn\":1501703559418,\"firstName\":\"Abhinav\",\"lastName\":\"Koppula\",\"email\":\"abhinav@test.com\",\"customerId\":\"cus_B8kOYFKHqZbotL\",\"subscriptions\":[{\"userId\":1,\"subscriptionId\":\"sub_B8kOhWWuH61Hjo\",\"subscriptionType\":\"basic-monthly\",\"id\":1}],\"lastLoginOn\":null,\"terminated\":false}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8080/users/1",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "abhinav@test.com",
+						"password": "password2",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "http://localhost:8080/users/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWJoaW5hdkB0ZXN0LmNvbTpwYXNzd29yZDI=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"firstName\": \"AbhinavTest\",\n    \"lastName\": \"Koppula\",\n    \"email\": \"abhinav2@test.com\",\n    \"customerId\": \"cus_B8kOYFKHqZb\"\n}"
+				},
+				"description": "- Update api\n- Apart from some fields(email, firstName, lastName) rest of the fields are not affected since they are generated by system/Stripe\n- Update password and Update payment are separate apis"
+			},
+			"response": [
+				{
+					"id": "d20d39e8-0526-4ce5-8f77-ee43c2deeac5",
+					"name": "Update response",
+					"originalRequest": {
+						"url": "http://localhost:8080/users/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"name": "Authorization",
+								"value": "Basic YWJoaW5hdkB0ZXN0LmNvbTpwYXNzd29yZDI=",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"firstName\": \"AbhinavTest\",\n    \"lastName\": \"Koppula\",\n    \"email\": \"abhinav2@test.com\",\n    \"customerId\": \"cus_B8kOYFKHqZb\"\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 02 Aug 2017 20:29:15 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "0",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [],
+					"responseTime": 3839,
+					"body": "{\"id\":1,\"createdOn\":1501703559418,\"lastModifiedOn\":1501703559418,\"firstName\":\"AbhinavTest\",\"lastName\":\"Koppula\",\"email\":\"abhinav2@test.com\",\"customerId\":\"cus_B8kOYFKHqZbotL\",\"subscriptions\":[{\"userId\":1,\"subscriptionId\":\"sub_B8kOhWWuH61Hjo\",\"subscriptionType\":\"basic-monthly\",\"id\":1}],\"lastLoginOn\":null,\"terminated\":false}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8080/users/updatePayment",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "abhinav@test.com",
+						"password": "password2",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "http://localhost:8080/users/updatePayment",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWJoaW5hdkB0ZXN0LmNvbTpwYXNzd29yZDI=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"token\": \"tok_1AmTWnKuZW8EOgBnFVB93gVv\"\n}"
+				},
+				"description": "- Update card details of customer\n- token in POST body is the Stripe token of the new card"
+			},
+			"response": []
+		}
+	]
+}

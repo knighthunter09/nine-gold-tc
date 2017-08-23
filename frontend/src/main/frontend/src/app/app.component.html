@@ -1,0 +1,90 @@
+﻿<!-- main app container -->
+<header class="header" [ngClass]="{'fixed': navIsFixed}">
+  <!-- row 1-->
+  <div class="row1">
+    <div class="social">
+      <div>
+        <span class="wsite-social wsite-social-default">
+          <a class="first-child wsite-social-item wsite-social-twitter" href="https://twitter.com/diamondedgeIT"
+             target="_blank"><span class="wsite-social-item-inner"></span></a>
+          <a class="last-child wsite-social-item wsite-social-mail" href="mailto:info@diamondedgeconsulting.com"
+             target="_blank"><span class="wsite-social-item-inner"></span></a>
+        </span>
+
+      </div>
+    </div>
+    <div class="phone-number">
+      <span class="wsite-text wsite-phone">
+        We know integration...
+      </span>
+    </div>
+  </div>
+
+  <!-- row 2-->
+  <div class="row2">
+    <div class="container">
+      <div class="logo">
+        <a href="/">
+          <img src="assets/img/header_logo.png" alt="logo">
+        </a>
+      </div>
+      <div class="nav" *ngIf="showNavBar">
+        <ul class="wsite-menu-default">
+          <li [ngClass]="{'active': activeMenuItem === ''}">
+            <a routerLink='/' class="wsite-menu-item">
+              Services Generation
+            </a>
+          </li>
+          <li [ngClass]="{'active': activeMenuItem === 'faq'}">
+            <a routerLink="/faq" class="wsite-menu-item">
+              FAQ
+            </a>
+          </li>
+          <li [ngClass]="{'active': activeMenuItem === 'profile'}">
+            <a routerLink="/profile" class="wsite-menu-item">
+              User Profile
+            </a>
+          </li>
+          <li>
+            <a href="javascript:" (click)="logout()" class="wsite-menu-item">
+              Log out
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--main content-->
+<div class="main-content" [ngClass]="{'fixed-header': navIsFixed}">
+  <div class="container">
+    <div class="content">
+      <!--router-outlet-->
+      <router-outlet></router-outlet>
+    </div>
+
+    <!--content-footer-->
+    <div class="content-footer">
+
+      <!--paragraph-->
+      <div class="paragraph">817 Broadway 5th Floor<br>New York, N.Y. 10003
+        <u><a href="mailto:info@diamondedge-it.com">info@diamondedge-it.com</a></u>
+        <span>©2014&nbsp;Diamond Edge IT Consulting&nbsp;Inc.&nbsp; All Rights Reserved.</span>
+      </div>
+
+      <!--logo-->
+      <a href="javascript:" class="logo">
+        <img src="assets/img/Nine_Gold_Logo.png" alt="logo">
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- footer-->
+<footer class="footer">
+  <div class="wsite-footer">
+    <div class="paragraph"><a href="http://www.ipower.com/" target="_blank">Web Hosting</a> by IPOWER</div>
+  </div>
+</footer>

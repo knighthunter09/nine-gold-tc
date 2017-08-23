@@ -1,0 +1,71 @@
+<div class="auth-content service-gen">
+  <h2>Service Generation</h2>
+
+  <!--login form-->
+  <form name="form" (ngSubmit)="f.form.valid && paymentToken && generate()" #f="ngForm" novalidate>
+
+    <!--error message-->
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    <div *ngIf="success" class="alert alert-success">{{error}}</div>
+
+    <!--form group-->
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !platform.valid }">
+      <label>Platform <sup>*</sup></label>
+      <select required name="platform" [(ngModel)]="model.platform" #platform="ngModel">
+        <option value="muleSoftPlatform" selected="selected">MuleSoft Platform</option>
+      </select>
+      <div *ngIf="f.submitted && !platform.valid" class="help-block">Platform not valid</div>
+    </div>
+    <!--form group-->
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !type.valid }">
+      <label>Type <sup>*</sup></label>
+      <select required name="type" [(ngModel)]="model.type" #type="ngModel">
+        <option value="soap" selected="selected">SOAP</option>
+        <option value="rest">REST</option>
+      </select>
+      <div *ngIf="f.submitted && !type.valid" class="help-block">Type not valid</div>
+    </div>
+
+    <!--form group-->
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !projectname.valid }">
+      <label>Project Name <sup>*</sup></label>
+      <input type="text" class="form-control" name="projectname" [(ngModel)]="model.projectname" #projectname="ngModel" required/>
+      <div *ngIf="f.submitted && !projectname.valid" class="help-block">Project Name not valid</div>
+    </div>
+    <!--form group-->
+    <div class="form-group">
+      <label>Input Schema (JSON Schema Only)</label>
+      <input type="file" class="form-control" name="inputschema" [(ngModel)]="model.inputschema"
+             #inputschema="ngModel"/>
+    </div>
+
+    <!--form group-->
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !outputschema.valid }">
+      <label>Output Schema (WSDL or JSON Schema)<sup>*</sup></label>
+      <input type="file" class="form-control" name="outputschema" [(ngModel)]="model.outputschema"
+             #outputschema="ngModel"/>
+      <div *ngIf="f.submitted && !outputschema.valid" class="help-block">Output Schema is required</div>
+    </div>
+
+    <hr/>
+
+    <h2>MAPPING INSTRUCTIONS (JSON FORMAT)</h2>
+
+    <!--form group-->
+    <div class="form-group">
+      <textarea name="format" [(ngModel)]="model.format" #format="ngModel"></textarea>
+    </div>
+
+    <!--form group-->
+    <div class="form-group button-bar">
+      <!--loading-->
+      <img *ngIf="loading" class="loading"
+           src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+
+      <button type="submit" [disabled]="loading" class="btn ">GENERATE</button>
+      <button type="button" [disabled]="loading" class="btn" [ngClass]="{'btn-primary' : generated}">DOWNLOAD</button>
+
+    </div>
+  </form>
+
+</div>

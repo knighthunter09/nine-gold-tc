@@ -1,0 +1,47 @@
+<div class="auth-content">
+  <h2>Update Profile</h2>
+
+  <!--login form-->
+  <form name="form" (ngSubmit)="f.form.valid && updateUser()" #f="ngForm" novalidate>
+
+    <!--error message-->
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    <div *ngIf="success" class="alert alert-success">{{error}}</div>
+
+    <!--form group-->
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+      <label>Email</label>
+      <input pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" type="email" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel"
+             required/>
+      <div *ngIf="f.submitted && !username.valid" class="help-block">Email not valid</div>
+    </div>
+    <!--form group-->
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+      <label>Password</label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" validateEqual="confirmpassword" reverse="true"
+             required/>
+      <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+    </div>
+    <!--form group-->
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !confirmpassword.valid }">
+      <label>Confirm Password</label>
+      <input type="password" class="form-control" validateEqual="password" name="confirmpassword" [(ngModel)]="model.confirmpassword" #confirmpassword="ngModel"
+             required/>
+      <div *ngIf="f.submitted && !confirmpassword.valid" class="help-block">Confirm Password is invalid</div>
+    </div>
+    <!--form group-->
+    <div class="form-group">
+      <button type="submit" [disabled]="loading" class="btn btn-primary">Update</button>
+
+      <!--loading-->
+      <img *ngIf="loading" class="loading"
+           src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+    </div>
+
+    <hr/>
+
+    <h2>Update Payment</h2>
+
+    <button type="button" (click)="openCheckout()" class="btn btn-primary">Set Payment</button>
+  </form>
+</div>

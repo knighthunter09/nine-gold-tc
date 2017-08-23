@@ -1,0 +1,393 @@
+@font-face {
+	font-family: "wsocial";
+	src: url("assets/fonts/wsocial.woff") format("woff");
+}
+
+html{
+  height: 100%;
+}
+
+// body style
+body {
+  color: #333333;
+  font: 15px/1 'Merriweather', arial, sans-serif;
+  width: 100%;
+  min-height: 100%;
+  background: #333333;
+  margin: 0;
+}
+
+*, *:after, *:after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #741b29;
+  transition: all 200ms linear;
+
+  &:hover{
+    color: #fff;
+  }
+}
+
+a, button, input, select, textarea,
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+  outline: none;
+}
+
+// button
+
+button {
+  display: inline-block;
+  width: 100px;
+  height: 36px;
+  border-radius: 2px;
+  background: #ccc;
+  border: 1px solid #aaa;
+  color: #333;
+
+  &.btn-primary {
+    background: #9e2438;
+    color: #fff;
+    border: none;
+  }
+}
+
+// container style
+.container, .wsite-footer {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 4em 1.5em;
+  box-sizing: border-box;
+}
+
+// header style
+header.header{
+  .container {
+    padding: 0 1.5em;
+  }
+  // row1
+  .row1 {
+    color: #fff;
+    background: #333333;
+    height: 37px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px;
+
+    .wsite-social-item {
+      font-size: 1em;
+      margin: 10px 8px;
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+
+      &:before {
+        font-family: "wsocial";
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+
+    .wsite-social-twitter:before {
+      content: "\e601";
+    }
+    .wsite-social-mail:before {
+      content: "\e603";
+    }
+
+    .phone-number {
+      text-align: right;
+      padding-left: 1.5em;
+
+      > span {
+        display: inline-block;
+        white-space: nowrap;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+  // row 2
+  .row2 {
+    position: relative;
+    background: #9e2438;
+    color: #ffffff;
+    .container{
+      display: flex;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      padding: 10px 0;
+      max-width: 400px;
+      display: flex;
+      align-items: center;
+      a {
+        display: block;
+        img{
+          max-width: 100%;
+        }
+      }
+    }
+
+    .nav {
+      text-align: right;
+      padding-left: 1.5em;
+
+      .wsite-menu-default{
+        margin: 0;
+      }
+      li {
+        list-style: none;
+        display: inline-block;
+        font-weight: normal;
+        a {
+          display: block;
+          padding: 25px 15px;
+          color: #ffffff;
+          font-family: 'Montserrat';
+          font-size: 14px;
+          text-transform: uppercase;
+          text-decoration: none;
+
+        }
+
+        &.active a{
+          color: #333;
+        }
+      }
+    }
+  }
+
+  &.fixed {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 0;
+    .row1 {
+      display: none;
+    }
+  }
+}
+
+// main content
+.main-content {
+  min-height: calc(100vh - 313px);
+  background: #fff;
+  position: relative;
+  display: flex;
+
+  &.fixed-header {
+    padding-top: 101px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .content {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: stretch;
+  }
+
+  //content footer
+  .content-footer {
+    width: 100%;
+    border-top: 1px solid rgba(0,0,0,0.13);
+    margin-top: 50px;
+    padding-top: 20px;
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: space-between;
+    .paragraph, p {
+      color: #555;
+      font-size: .9em;
+      line-height: 2;
+
+      u {
+        display: block;
+        a{
+          text-decoration: underline;
+          &:hover {
+            color: #333;
+          }
+        }
+      }
+    }
+
+    .logo {
+      display: block;
+      width: 288px;
+      margin: 5px 10px 10px;
+
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
+// footer
+.footer {
+  position: relative;
+  width: 100%;
+  background: #333333;
+
+  .wsite-footer {
+    margin: 0 auto;
+    max-width: 1100px;
+    padding: 4em 1.5em;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 212px;
+    .paragraph {
+      color: #fff;
+      font-size: .9em;
+      line-height: 2;
+      a{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+ng-component, .component.ts {
+  min-height: 100%;
+  flex: 1;
+}
+
+.auth-content, .service-gen {
+  display: flex;
+  flex: 1;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > div.form-holder{
+    width: 100%;
+    text-align: center;
+  }
+
+  form {
+    display: block;
+    max-width: 500px;
+    width: 100%;
+    font-size: 1em;
+    margin: 0 auto;
+    text-align: left;
+
+    .alert {
+      color: #333;
+      font-size: .7em;
+    }
+
+    .alert-danger{
+      color: rgba(255, 30, 0, 0.62);
+      font-size: .7em;
+    }
+    .alert-success{
+      color: rgba(7, 139, 24, 0.62);
+      font-size: .7em;
+    }
+
+    .form-group {
+
+      label {
+        display: block;
+        line-height: 30px;
+
+        sup {
+          color: rgba(255, 30, 0, 0.62);
+        }
+      }
+
+      input, select, textarea {
+        display: block;
+        width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.13);
+        padding: 8px 10px;
+        font-size: 1em;
+        margin-bottom: 10px;
+        height: 36px;
+        border-radius: 0;
+        background: transparent;
+      }
+
+      input[type=file] {
+        padding: 0;
+        width: auto;
+        border: none;
+      }
+
+      textarea {
+        height: 200px;
+        resize: none;
+      }
+
+      button {
+        margin-right: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+
+      .forgot-password{
+        float: right;
+        margin-top: 20px;
+        &:hover {
+          color: #333;
+        }
+      }
+
+      &.has-error {
+        input, select {
+          border: 1px solid rgba(255, 30, 0, 0.62);
+        }
+        .help-block{
+          color: rgba(255, 30, 0, 0.62);
+          font-size: .7em;
+          margin-top: -10px;
+        }
+      }
+    }
+
+
+    .button-bar{
+      display: block;
+      width: 100%;
+      text-align: right;
+
+      button{
+        margin-left: 10px;
+        margin-right: 0;
+      }
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.13);
+      width: 100%;
+      margin: 50px 0;
+    }
+  }
+}
+
+.service-gen {
+  form {
+    max-width: 600px;
+  }
+}
