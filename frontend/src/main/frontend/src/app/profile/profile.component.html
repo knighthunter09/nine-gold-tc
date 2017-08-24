@@ -6,7 +6,7 @@
 
     <!--error message-->
     <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-    <div *ngIf="success" class="alert alert-success">{{error}}</div>
+    <div *ngIf="success" class="alert alert-success">{{success}}</div>
 
     <!--form group-->
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">

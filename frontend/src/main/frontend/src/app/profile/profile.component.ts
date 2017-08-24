@@ -52,9 +52,6 @@ export class ProfileComponent implements OnInit {
     this.userService.update(this.currentUser.id, this.model.username, this.model.password)
       .subscribe(result => {
           this.loading = false;
-          this.model.username = '';
-          this.model.password = '';
-          this.model.confirmpassword = '';
           this.success = 'Successully Updated';
           this.error = '';
         },
