@@ -4,8 +4,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-1. development host and port con be configured in `apps > defaults > serve` node in `.angular-cli.json` file.
+Run `npm start` for a dev server. 
+Development host and port con be configured in `apps > defaults > serve` node in `.angular-cli.json` file. 
+Defaults is `http://localhost:4200/`.
+The app will automatically reload if you change any of the source files.
+
+## Proxy setting
+
+Frontend requests will be go through proxy according to the setting in `proxy.config.json`, 
+You can edit `proxy.config.json` to change development backend server host & port you want to send to. Default is `http://localhost:8080`.
 
 ## Code scaffolding
 

@@ -21,6 +21,10 @@ https://drive.google.com/file/d/0B8ofBd1aoVrqUEF6MWltSW9jaFU/view
 ## API Configuration
 ### application configuration
 Edit file `backend/src/main/resources/application.properties`:
+Edit development server related configs
+- **server.address**: Network address to which the server should bind to.
+- **server.port** : Server HTTP port.
+
 Edit stripe related configs 
 - **stripe.apiKey**: api key
 - **stripe.plan.name** : plan name
@@ -49,7 +53,8 @@ Please check all property keys in `backend/src/main/resources/application.proper
 You can customize any of these keys using command line parameters or system variables if you want to.
 
 ## Deployment
-You can run below mvn command to run application directly, this application will automatically restart if you change code.
+You can run below mvn command to run application directly.
+The app will automatically reload if you change any of the source files.
 ``` bash
 mvn clean install
 cd backend
