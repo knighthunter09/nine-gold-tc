@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class GeneratedService {
 
-  private String downloadLink;
+  private String downloadUrl;
 }

@@ -20,7 +20,7 @@ public class ServiceController {
 
 
     GeneratedService generatedMapping = new GeneratedService();
-    generatedMapping.setDownloadLink("http://XXXXXX");
+    generatedMapping.setDownloadUrl("http://XXXXXX");
     return generatedMapping;
   }
 
