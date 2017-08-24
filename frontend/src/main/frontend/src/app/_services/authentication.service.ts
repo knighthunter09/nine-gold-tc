@@ -17,10 +17,7 @@ export class AuthenticationService {
     const headers: Headers = new Headers();
     headers.append('Authorization', 'Basic ' + btoa(username + ':' + password));
     headers.append('Content-Type', 'application/json');
-    return this.http.post('//localhost:8080/auth/login', JSON.stringify({
-      username: username,
-      password: password
-    }), {headers: headers})
+    return this.http.post('/auth/login', {}, {headers: headers})
       .map((response: any) => {
 
         const resBody = JSON.parse(response._body);

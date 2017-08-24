@@ -325,6 +325,32 @@ paths:
           description: Forbidden
         '404':
           description: Not Found
+  /service/generate:
+    post:
+      tags:
+        - service-controller
+      summary: generate service
+      operationId: generateServiceUsingPost
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: entity
+          description: entity
+          required: true
+          schema:
+            $ref: '#/definitions/GenerateServiceRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/GeneratedService'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
 definitions:
   NewPassword:
     type: object
@@ -384,3 +410,10 @@ definitions:
           $ref: '#/definitions/UserSubscription'
       terminated:
         type: boolean
+  GeneratedService:
+    type: object
+    properties:
+      downloadUrl:
+        type: string
+  GenerateServiceRequest:
+    type: object

@@ -49,7 +49,7 @@ Please check all property keys in `backend/src/main/resources/application.proper
 You can customize any of these keys using command line parameters or system variables if you want to.
 
 ## Deployment
-You can run below mvn command to run application directly.
+You can run below mvn command to run application directly, this application will automatically restart if you change code.
 ``` bash
 mvn clean install
 cd backend

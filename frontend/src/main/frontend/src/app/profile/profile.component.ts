@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.model.username = this.currentUser.email;
   }
 
   // openCheckout

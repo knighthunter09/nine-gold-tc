@@ -1,3 +1,3 @@
 ﻿export let config = {
-  stripePublishKey: 'pk_test_V4nhkP879DZZegltRyNssStp'
+  stripePublishKey: 'pk_test_zbV8Dl2N1kOJXOQ2IP6gCEII'
 };

@@ -38,7 +38,7 @@ export class UserService {
     const options = new RequestOptions({headers: headers});
 
     // get users from api
-    return this.http.put('/users/updatePassword', JSON.stringify({
+    return this.http.put('/users/resetPassword', JSON.stringify({
       token: token,
       newPassword: password
     }), options)
@@ -86,11 +86,24 @@ export class UserService {
     return this.http.put(`/users/updatePayment`, JSON.stringify({
       token: token
     }), options)
-      .map((response: Response) => {
-        if (response) {
+      .map((response: any) => {
+
+        const resBody = JSON.parse(response._body);
+        console.log(resBody);
+        if (response.status < 200 || response.status >= 300) {
+          throw new Error('This request has failed ' + response.status);
+        }
+        const token = JSON.parse(localStorage.getItem('currentUser')).token;
+        if (token) {
+          resBody.token = token;
+
+          // store username and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify(resBody));
+
           return true;
-        } else {
-          return response.json();
+        }
+        if (response.error) {
+          return false;
         }
       });
   }
@@ -102,7 +115,7 @@ export class UserService {
     const options = new RequestOptions({headers: headers});
 
     // get users from api
-    return this.http.get('/users/generate', options)
+    return this.http.post('/services/generate', {}, options)
       .map((response: Response) => response.json());
   }
 }

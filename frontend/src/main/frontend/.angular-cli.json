@@ -53,6 +53,10 @@
   "defaults": {
     "styleExt": "scss",
     "component": {
+    },
+    "serve": {
+      "port": 4200,
+      "host": "localhost"
     }
   }
 }

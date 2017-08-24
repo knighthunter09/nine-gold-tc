@@ -19,6 +19,7 @@ import {RegisterComponent} from './register/register.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {ProfileComponent} from './profile/profile.component';
 import {EqualValidatorDirective} from './_directives/EqualValidator';
+import {HomeComponent} from "./home/home.component";
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import {EqualValidatorDirective} from './_directives/EqualValidator';
     RegisterComponent,
     ForgotPasswordComponent,
     ProfileComponent,
-    EqualValidatorDirective
+    EqualValidatorDirective,
+    HomeComponent
   ],
   providers: [
     AuthGuard,

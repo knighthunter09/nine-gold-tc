@@ -27,15 +27,14 @@ public interface UserService extends GenericService<User, UserSearchCriteria> {
     ForgotPassword forgotPassword(long userId) throws NineGoldException;
 
     /**
-     * This method is used to update the forgot password entity for the given token.
+     * This method is used to reset the forgot password entity for the given token.
      *
      * @param newPassword the newPassword request.
-     * @return true if update the password successfully otherwise false
+     * @return true if reset the password successfully otherwise false
      * @throws IllegalArgumentException if newPassword is null or invalid
      * @throws NineGoldException if any other error occurred during operation
      */
-    boolean updatePassword(NewPassword newPassword) throws NineGoldException;
-
+    boolean resetPassword(NewPassword newPassword) throws NineGoldException;
 
     /**
      * Gets my profile.

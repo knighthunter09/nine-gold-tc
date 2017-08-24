@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "NineGold-API",
-		"_postman_id": "3efe6c1f-7ee0-d431-7eea-587a5d211a76",
+		"_postman_id": "f64839d1-0aca-81a5-0438-9b197c264555",
 		"description": "NineGold API Docs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -13,7 +13,10 @@
 				"url": "http://localhost:8080/stripe/plan",
 				"method": "POST",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "This is used to create a stripe plan\nThis needs to be run before we register any user since we are assuming that a stripe plan would already be present"
 			},
 			"response": []
@@ -59,12 +62,15 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "- Login api which uses Basic Authentication\n- Returns the user object"
 			},
 			"response": [
 				{
-					"id": "5a5acd5c-ea7c-49ea-b252-bb332a7e7c68",
+					"id": "fb50a547-0f72-471f-b5d8-715db8362d4e",
 					"name": "Invalid creds example",
 					"originalRequest": {
 						"url": "http://localhost:8080/auth/login",
@@ -78,7 +84,11 @@
 								"description": ""
 							}
 						],
-						"body": {}
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
 					},
 					"status": "Unauthorized",
 					"code": 401,
@@ -151,7 +161,7 @@
 					"body": "{\"timestamp\":1501703812972,\"status\":401,\"error\":\"Unauthorized\",\"message\":\"Bad credentials\",\"path\":\"/auth/login\"}"
 				},
 				{
-					"id": "2cec0c6e-db45-4c72-81da-c83553491601",
+					"id": "27510000-a903-476f-92a9-cf11552b0868",
 					"name": "Login response after user is terminated",
 					"originalRequest": {
 						"url": "http://localhost:8080/auth/login",
@@ -165,7 +175,11 @@
 								"description": ""
 							}
 						],
-						"body": {}
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
 					},
 					"status": "Unauthorized",
 					"code": 401,
@@ -260,12 +274,15 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "- Logout Api"
 			},
 			"response": [
 				{
-					"id": "f1c47a88-0eb5-449a-ae1e-afb0990d5ba3",
+					"id": "804be0f1-3898-46cc-a124-02882cb2450b",
 					"name": "Logout with invalid creds",
 					"originalRequest": {
 						"url": "http://localhost:8080/auth/logout",
@@ -279,7 +296,11 @@
 								"description": ""
 							}
 						],
-						"body": {}
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
 					},
 					"status": "Unauthorized",
 					"code": 401,
@@ -352,7 +373,7 @@
 					"body": "{\"timestamp\":1501703966789,\"status\":401,\"error\":\"Unauthorized\",\"message\":\"Bad credentials\",\"path\":\"/auth/logout\"}"
 				},
 				{
-					"id": "6dc844e0-6167-4aff-b407-c4dacd19eef7",
+					"id": "443a5834-db5f-4106-8a34-1d06705bd81d",
 					"name": "Logout Response",
 					"originalRequest": {
 						"url": "http://localhost:8080/auth/logout",
@@ -366,7 +387,11 @@
 								"description": ""
 							}
 						],
-						"body": {}
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
 					},
 					"status": "OK",
 					"code": 200,
@@ -440,12 +465,15 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "- Terminates user by setting is_terminated flag to true\n- Also cancels Stripe subscription"
 			},
 			"response": [
 				{
-					"id": "12e8db12-653b-45b1-851d-cdd571802105",
+					"id": "ab133bb0-2f8f-4175-a000-3c694d7b85d9",
 					"name": "Termination Response - 200",
 					"originalRequest": {
 						"url": "http://localhost:8080/users/terminate",
@@ -459,7 +487,11 @@
 								"description": ""
 							}
 						],
-						"body": {}
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
 					},
 					"status": "OK",
 					"code": 200,
@@ -546,7 +578,10 @@
 				},
 				"method": "PUT",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "- Reset password api\n- Emails token to user"
 			},
 			"response": []
@@ -576,12 +611,15 @@
 				},
 				"method": "PUT",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "- Reset password api behavior when user with incoming email is not found"
 			},
 			"response": [
 				{
-					"id": "de9a2c5c-c011-40fa-83ca-67dbe171da97",
+					"id": "37757acf-7481-4960-92f7-eebce6f1db22",
 					"name": "User not found response",
 					"originalRequest": {
 						"url": {
@@ -614,7 +652,11 @@
 								"disabled": true
 							}
 						],
-						"body": {}
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
 					},
 					"status": "Internal Server Error",
 					"code": 500,
@@ -691,7 +733,7 @@
 		{
 			"name": "http://localhost:8080/users/updatePassword",
 			"request": {
-				"url": "http://localhost:8080/users/updatePassword",
+				"url": "http://localhost:8080/users/resetPassword",
 				"method": "PUT",
 				"header": [
 					{
@@ -708,7 +750,7 @@
 			},
 			"response": [
 				{
-					"id": "d39a3582-618b-4a51-b91b-dbbd71eff58b",
+					"id": "e866d820-89e6-4f77-9f2f-24c88f9e2fba",
 					"name": "Update password response",
 					"originalRequest": {
 						"url": "http://localhost:8080/users/updatePassword",
@@ -724,7 +766,8 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n\t\n\t\"token\": \"af5ce2b7-a1ec-46b6-abdd-9d7d059b8525\",\n\t\"newPassword\": \"password2\"\n}"
-						}
+						},
+						"description": ""
 					},
 					"status": "OK",
 					"code": 200,
@@ -791,7 +834,7 @@
 					"body": "true"
 				},
 				{
-					"id": "1b2dadf0-38a6-4f0d-b3ae-d7e0ef6f2ec5",
+					"id": "df42e141-242f-400c-ac9e-72f83d18d7a9",
 					"name": "Incorrect token example",
 					"originalRequest": {
 						"url": "http://localhost:8080/users/updatePassword",
@@ -806,7 +849,8 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n\t\n\t\"token\": \"af5ce2b7-a1ec-46b6-abdd-9d7d059b852\",\n\t\"newPassword\": \"password2\"\n}"
-						}
+						},
+						"description": ""
 					},
 					"status": "Internal Server Error",
 					"code": 500,
@@ -912,12 +956,15 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": "- Utility api to get detail about oneself"
 			},
 			"response": [
 				{
-					"id": "382a14f0-d9dd-4b83-b26c-9a00ef984360",
+					"id": "57600b59-26a8-4e75-bc55-e135da8a002b",
 					"name": "get Me Response",
 					"originalRequest": {
 						"url": "http://localhost:8080/users/me",
@@ -930,7 +977,11 @@
 								"description": ""
 							}
 						],
-						"body": {}
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
 					},
 					"status": "OK",
 					"code": 200,
@@ -1026,13 +1077,13 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": 1,\n    \"firstName\": \"AbhinavTest\",\n    \"lastName\": \"Koppula\",\n    \"email\": \"abhinav2@test.com\",\n    \"customerId\": \"cus_B8kOYFKHqZb\"\n}"
+					"raw": "{\n    \"id\": 1,\n    \"firstName\": \"AbhinavTest\",\n    \"lastName\": \"Koppula\",\n    \"email\": \"abhinav2@test.com\",\n    \"password\": \"password3\",\n    \"customerId\": \"cus_B8kOYFKHqZb\"\n}"
 				},
-				"description": "- Update api\n- Apart from some fields(email, firstName, lastName) rest of the fields are not affected since they are generated by system/Stripe\n- Update password and Update payment are separate apis"
+				"description": "- Update api\n- Apart from some fields(email, firstName, lastName, password) rest of the fields are not affected since they are generated by system/Stripe\n- Reset password and Update payment are separate apis"
 			},
 			"response": [
 				{
-					"id": "d20d39e8-0526-4ce5-8f77-ee43c2deeac5",
+					"id": "f4212a3d-d3c1-444e-a877-c7617d79fd9e",
 					"name": "Update response",
 					"originalRequest": {
 						"url": "http://localhost:8080/users/1",
@@ -1055,7 +1106,8 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"id\": 1,\n    \"firstName\": \"AbhinavTest\",\n    \"lastName\": \"Koppula\",\n    \"email\": \"abhinav2@test.com\",\n    \"customerId\": \"cus_B8kOYFKHqZb\"\n}"
-						}
+						},
+						"description": ""
 					},
 					"status": "OK",
 					"code": 200,
@@ -1154,6 +1206,26 @@
 					"raw": "{\n\t\"token\": \"tok_1AmTWnKuZW8EOgBnFVB93gVv\"\n}"
 				},
 				"description": "- Update card details of customer\n- token in POST body is the Stripe token of the new card"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/services/generate",
+			"request": {
+				"url": "http://localhost:8080/services/generate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"description": "- This is used to generate service for download, it's just a dummy api now."
 			},
 			"response": []
 		}

@@ -89,7 +89,6 @@ public class StripeServiceImpl implements StripeService {
         Customer customer = Customer.retrieve(customerId);
         Map<String, Object> updateParams = new HashMap<>();
         updateParams.put("source", token);
-
         return customer.update(updateParams);
     }
 

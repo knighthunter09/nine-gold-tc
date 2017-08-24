@@ -13,17 +13,26 @@ export class ServicesGenerationComponent implements OnInit {
   loading = false;
   error = '';
   success = '';
-  generated= false;
-  paymentToken= false;
+  paymentToken= null;
+  downloadUrl = null;
 
   constructor(public  userService: UserService) { }
 
   ngOnInit() {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.paymentToken = this.currentUser.paymentToken;
+    console.log(this.paymentToken);
   }
 
   // generate
   generate() {
-    this.userService.generate(this.model).subscribe();
+    this.loading = true;
+    this.userService.generate(this.model).subscribe((result) => {
+      this.downloadUrl = result['downloadUrl'];
+      this.loading = false;
+    }, (err) => {
+      this.loading = false;
+    });
   }
 
 }

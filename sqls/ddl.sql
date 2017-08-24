@@ -9,6 +9,7 @@ CREATE TABLE "user" (
   email VARCHAR(256) NOT NULL UNIQUE,
   customer_id VARCHAR(256) NOT NULL UNIQUE,
   is_terminated BOOLEAN NOT NULL DEFAULT FALSE,
+  payment_token VARCHAR(256) NULL,
   last_login_on TIMESTAMP,
   created_on TIMESTAMP NOT NULL,
   last_modified_on TIMESTAMP NOT NULL);

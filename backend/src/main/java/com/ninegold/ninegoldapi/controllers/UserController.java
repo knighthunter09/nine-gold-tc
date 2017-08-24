@@ -86,7 +86,6 @@ public class UserController extends BaseEmailController {
      * @throws IllegalArgumentException if entity is null or not valid
      * @throws NineGoldException if any other error occurred during operation
      */
-    @Transactional
     @RequestMapping(value = "{planId}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public User create(@PathVariable String planId, @RequestBody User entity) throws NineGoldException {
@@ -101,7 +100,7 @@ public class UserController extends BaseEmailController {
             entity.setCustomerId(stripeRegistrationResponse.getCustomer().getId());
             user = userService.create(entity);
         } catch (Exception e) {
-            throw new NineGoldException(e.getMessage());
+            throw new NineGoldException(e.getMessage(), e);
         }
         return user;
     }
@@ -179,29 +178,32 @@ public class UserController extends BaseEmailController {
 
 
     /**
-     * This method is used to update the password.
+     * This method is used to reset the password.
      *
      * @param newPassword the new password request
-     * @return true if update the password successfully otherwise false
+     * @return true if reset the password successfully otherwise false
      * @throws IllegalArgumentException if newPassword is null or invalid
      * @throws NineGoldException if any other error occurred during operation
      */
     @Transactional
-    @RequestMapping(value = "updatePassword", method = RequestMethod.PUT)
-    public boolean updatePassword(@RequestBody NewPassword newPassword) throws NineGoldException {
-        return userService.updatePassword(newPassword);
+    @RequestMapping(value = "resetPassword", method = RequestMethod.PUT)
+    public boolean resetPassword(@RequestBody NewPassword newPassword) throws NineGoldException {
+        return userService.resetPassword(newPassword);
     }
 
     @Transactional
     @RequestMapping(value = "updatePayment", method = RequestMethod.PUT)
-    public boolean updatePayment(@RequestBody StripToken token) throws NineGoldException {
+    public User updatePayment(@RequestBody StripToken token) throws NineGoldException {
         User currentUser = Helper.getAuthUser();
         try {
             stripeService.updatePayment(currentUser, token.getToken());
+            currentUser.setPaymentToken(token.getToken());
+            currentUser = userService.update(currentUser.getId(), currentUser);
         } catch (Exception e) {
             throw new NineGoldException(e.getMessage());
         }
-        return true;
+        return currentUser;
     }
+
 
 }

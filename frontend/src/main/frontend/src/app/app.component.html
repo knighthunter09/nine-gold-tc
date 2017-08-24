@@ -25,11 +25,13 @@
     <div class="container">
       <div class="logo">
         <a href="/">
-          <img src="assets/img/header_logo.png" alt="logo">
+          <span>
+            #9g™ REST Generator
+          </span>
         </a>
       </div>
-      <div class="nav" *ngIf="showNavBar">
-        <ul class="wsite-menu-default">
+      <div class="nav">
+        <ul class="wsite-menu-default" *ngIf="isLogIn">
           <li [ngClass]="{'active': activeMenuItem === ''}">
             <a routerLink='/' class="wsite-menu-item">
               Services Generation
@@ -48,6 +50,13 @@
           <li>
             <a href="javascript:" (click)="logout()" class="wsite-menu-item">
               Log out
+            </a>
+          </li>
+        </ul>
+        <ul class="wsite-menu-default" *ngIf="!isLogIn">
+          <li>
+            <a routerLink="/login" class="wsite-menu-item">
+              Log In
             </a>
           </li>
         </ul>
@@ -85,6 +94,5 @@
 <!-- footer-->
 <footer class="footer">
   <div class="wsite-footer">
-    <div class="paragraph"><a href="http://www.ipower.com/" target="_blank">Web Hosting</a> by IPOWER</div>
   </div>
 </footer>

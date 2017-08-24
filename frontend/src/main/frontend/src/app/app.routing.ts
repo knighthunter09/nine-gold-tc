@@ -7,8 +7,10 @@ import {ServicesGenerationComponent} from './services-generation/services-genera
 import {RegisterComponent} from './register/register.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {ProfileComponent} from './profile/profile.component';
+import {HomeComponent} from './home/home.component';
 
 const appRoutes: Routes = [
+    { path: 'home', component: HomeComponent},
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },

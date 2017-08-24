@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'app';
 
   public navIsFixed = false;
-  public showNavBar = false;
+  public isLogIn = false;
   public activeMenuItem = '';
 
   constructor(@Inject(DOCUMENT) private document: Document, private globalEventsManager: GlobalEventsManager,
@@ -21,12 +21,12 @@ export class AppComponent {
 
     // show navbar
     this.globalEventsManager.showNavBar.subscribe((mode: any) => {
-      this.showNavBar = true;
+      this.isLogIn = true;
     });
 
     // hide nav bar (login, register, reset password)
     this.globalEventsManager.hideNavBar.subscribe((mode: any) => {
-      this.showNavBar = false;
+      this.isLogIn = false;
     });
 
     // set active nav item
@@ -50,7 +50,7 @@ export class AppComponent {
   logout() {
     this.authenticationService.logout().subscribe(
       () => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/home']);
         this.globalEventsManager.hideNavBar.emit(true);
       }
     );

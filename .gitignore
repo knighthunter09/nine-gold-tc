@@ -22,3 +22,6 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+frontend/src/main/frontend/node_modules
+frontend/src/main/frontend/node
+frontend/node_modules

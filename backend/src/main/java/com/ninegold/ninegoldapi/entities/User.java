@@ -61,6 +61,10 @@ public class User extends AuditableEntity {
     @Column(name = "is_terminated")
     private boolean isTerminated;
 
+
+    private String paymentToken;
+
+
     /**
      * The subscriptions.
      */

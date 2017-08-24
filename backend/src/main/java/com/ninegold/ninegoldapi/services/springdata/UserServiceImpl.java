@@ -119,6 +119,12 @@ public class UserServiceImpl extends BaseService<User, UserSearchCriteria> imple
         if (entity.getLastName() != null) {
             existing.setLastName(entity.getLastName());
         }
+        if (entity.getPassword() != null) {
+            existing.setPassword(entity.getPassword());
+        }
+        if (entity.getPaymentToken() != null) {
+            existing.setPaymentToken(entity.getPaymentToken());
+        }
         return getRepository().save(existing);
     }
 
@@ -152,7 +158,7 @@ public class UserServiceImpl extends BaseService<User, UserSearchCriteria> imple
      * @throws NineGoldException if any other error occurred during operation
      */
     @Transactional
-    public boolean updatePassword(NewPassword newPassword) throws NineGoldException {
+    public boolean resetPassword(NewPassword newPassword) throws NineGoldException {
         Helper.checkNull(newPassword, "newPassword");
         String token = newPassword.getToken();
         String newPass = newPassword.getNewPassword();

@@ -132,8 +132,9 @@ header.header{
       align-items: center;
       a {
         display: block;
-        img{
-          max-width: 100%;
+        span {
+          color: #ffffff;
+          font-size: 1.5em;
         }
       }
     }
@@ -181,7 +182,7 @@ header.header{
 
 // main content
 .main-content {
-  min-height: calc(100vh - 313px);
+  min-height: calc(100vh - 138px);
   background: #fff;
   position: relative;
   display: flex;
@@ -200,6 +201,12 @@ header.header{
     flex: 1 1 auto;
     display: flex;
     align-items: stretch;
+  }
+
+  .faq {
+    .question {
+      font-weight: bold;
+    }
   }
 
   //content footer
@@ -244,16 +251,16 @@ header.header{
   position: relative;
   width: 100%;
   background: #333333;
+  height: 37px;
 
   .wsite-footer {
     margin: 0 auto;
     max-width: 1100px;
-    padding: 4em 1.5em;
+    padding: 0em 1.5em;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    min-height: 212px;
     .paragraph {
       color: #fff;
       font-size: .9em;
