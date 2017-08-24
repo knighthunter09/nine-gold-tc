@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "NineGold-API",
-		"_postman_id": "f64839d1-0aca-81a5-0438-9b197c264555",
+		"_postman_id": "48e87d53-9fc3-87ec-7fac-7cb0dd0c9082",
 		"description": "NineGold API Docs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -70,7 +70,7 @@
 			},
 			"response": [
 				{
-					"id": "fb50a547-0f72-471f-b5d8-715db8362d4e",
+					"id": "9f84adf0-0319-4e8d-bfee-90d52b7f43fc",
 					"name": "Invalid creds example",
 					"originalRequest": {
 						"url": "http://localhost:8080/auth/login",
@@ -161,7 +161,7 @@
 					"body": "{\"timestamp\":1501703812972,\"status\":401,\"error\":\"Unauthorized\",\"message\":\"Bad credentials\",\"path\":\"/auth/login\"}"
 				},
 				{
-					"id": "27510000-a903-476f-92a9-cf11552b0868",
+					"id": "5c1294af-41b3-4dbd-80f8-9ff2f2b521a9",
 					"name": "Login response after user is terminated",
 					"originalRequest": {
 						"url": "http://localhost:8080/auth/login",
@@ -282,7 +282,7 @@
 			},
 			"response": [
 				{
-					"id": "804be0f1-3898-46cc-a124-02882cb2450b",
+					"id": "25a947f1-18a1-40a1-aa41-cf2b1f40d114",
 					"name": "Logout with invalid creds",
 					"originalRequest": {
 						"url": "http://localhost:8080/auth/logout",
@@ -373,7 +373,7 @@
 					"body": "{\"timestamp\":1501703966789,\"status\":401,\"error\":\"Unauthorized\",\"message\":\"Bad credentials\",\"path\":\"/auth/logout\"}"
 				},
 				{
-					"id": "443a5834-db5f-4106-8a34-1d06705bd81d",
+					"id": "0548b0d6-8c14-493a-9dd1-82743e92b2c0",
 					"name": "Logout Response",
 					"originalRequest": {
 						"url": "http://localhost:8080/auth/logout",
@@ -473,7 +473,7 @@
 			},
 			"response": [
 				{
-					"id": "ab133bb0-2f8f-4175-a000-3c694d7b85d9",
+					"id": "9cf3f8f6-08de-4add-9ae5-dc1f2fd9a0ed",
 					"name": "Termination Response - 200",
 					"originalRequest": {
 						"url": "http://localhost:8080/users/terminate",
@@ -619,7 +619,7 @@
 			},
 			"response": [
 				{
-					"id": "37757acf-7481-4960-92f7-eebce6f1db22",
+					"id": "659aa1ad-3ebd-4dc6-bf4c-4889627cd9c3",
 					"name": "User not found response",
 					"originalRequest": {
 						"url": {
@@ -731,7 +731,7 @@
 			]
 		},
 		{
-			"name": "http://localhost:8080/users/updatePassword",
+			"name": "http://localhost:8080/users/resetPassword",
 			"request": {
 				"url": "http://localhost:8080/users/resetPassword",
 				"method": "PUT",
@@ -750,7 +750,7 @@
 			},
 			"response": [
 				{
-					"id": "e866d820-89e6-4f77-9f2f-24c88f9e2fba",
+					"id": "50016fb4-4cfb-4616-8ac2-d65e43f9f18a",
 					"name": "Update password response",
 					"originalRequest": {
 						"url": "http://localhost:8080/users/updatePassword",
@@ -834,7 +834,7 @@
 					"body": "true"
 				},
 				{
-					"id": "df42e141-242f-400c-ac9e-72f83d18d7a9",
+					"id": "416019d9-df7b-43eb-8f91-3dc3eeab3a53",
 					"name": "Incorrect token example",
 					"originalRequest": {
 						"url": "http://localhost:8080/users/updatePassword",
@@ -964,7 +964,7 @@
 			},
 			"response": [
 				{
-					"id": "57600b59-26a8-4e75-bc55-e135da8a002b",
+					"id": "7dbfa36c-e86e-414a-9194-a12c95cf72fa",
 					"name": "get Me Response",
 					"originalRequest": {
 						"url": "http://localhost:8080/users/me",
@@ -1083,7 +1083,7 @@
 			},
 			"response": [
 				{
-					"id": "f4212a3d-d3c1-444e-a877-c7617d79fd9e",
+					"id": "308dd03f-d008-4100-9d8f-8ede26dd5544",
 					"name": "Update response",
 					"originalRequest": {
 						"url": "http://localhost:8080/users/1",
