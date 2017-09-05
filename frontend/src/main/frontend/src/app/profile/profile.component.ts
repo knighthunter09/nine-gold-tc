@@ -39,8 +39,9 @@ export class ProfileComponent implements OnInit {
     });
 
     handler.open({
-      name: 'Ninegold',
-      description: 'Add payment'
+      name: '#9g™ REST Generator',
+      description: 'Update your payment method.',
+      panelLabel: 'Save',
     });
 
   }
